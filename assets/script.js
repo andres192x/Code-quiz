@@ -1,5 +1,15 @@
 var startButton = document.querySelector("#start");
 var quizContainer = document.querySelector (".quiz-container")
+
+// /queryselectors for op1-4
+// within nextQuestion()
+//          //after we move on to next question, now we want to display answers of questions[index] to op 1-4
+//         //repeat process for all of the other ones. (edited) 
+// function checkAnswer(){
+//    //this function is trigered when a op 1-4 button is clicked
+//    //compare the answer of the button to the correct answer of questions[index].correctAnswer
+// }
+
 var questions = [
     {
         question: "Commonly used data types do not include:",
@@ -7,25 +17,21 @@ var questions = [
         correctAnswer: "alert",
 },
 {
-    question: "Commonly used data types do not include:",
-    answers: ["strings","booleans","alert","numbers"],
-    correctAnswer: "alert",
+    question: "The condition in an if/else statement is enclosed with _",
+    answers: ["quotes","curly brackets","parenthesis","square brackets"],
+    correctAnswer: "parenthesis",
 },
 {
-    question: "Commonly used data types do not include:",
-    answers: ["strings","booleans","alert","numbers"],
-    correctAnswer: "alert",
+    question: "Arrays in javascript can be used to store:",
+    answers: ["number and strings","other arrays","booleans","all of the above"],
+    correctAnswer: "all of the above",
 },
 {
-    question: "Commonly used data types do not include:",
-    answers: ["strings","booleans","alert","numbers"],
-    correctAnswer: "alert",
+    question: "String values must be enclosed within _ when being assigned to variables.",
+    answers: ["commas","curly brackets","quotes","parenthesis"],
+    correctAnswer: "quotes",
 },
-{
-    question: "Commonly used data types do not include:",
-    answers: ["strings","booleans","alert","numbers"],
-    correctAnswer: "alert",
-},
+
 ]
 function nextQuestion(){
     
