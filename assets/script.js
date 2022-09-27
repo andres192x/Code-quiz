@@ -5,12 +5,6 @@ var button2 = document.getElementById("op2");
 var button3 = document.getElementById("op3");
 var button4 = document.getElementById("op4");
 
-var score = 0
-for (var i=0; i<questions.length; i++)
-var response
-var question = 0
-
-
 
 // /queryselectors for op1-4
 // within nextQuestion()
@@ -20,6 +14,13 @@ var question = 0
 //    //this function is trigered when a op 1-4 button is clicked
 //    //compare the answer of the button to the correct answer of questions[index].correctAnswer
 // }
+
+
+startButton.addEventListener("click", function(event){
+    quizContainer.classList.remove("hide");
+    startButton.classList.add("hide");
+     nextQuestion();
+ })
 
 var questions = [
     {
@@ -44,25 +45,80 @@ var questions = [
 },
 
 ]
+
+var currentQuestionIndex = 0;
+
 function nextQuestion(){
+    var currentQuestion = questions[currentQuestionIndex];
+    var questionContainer=document.querySelector('#questionContainer')  
+    console.log(currentQuestion,'this is the current question')
+    console.log(questionContainer,'container was made a variable')
+
+    var title=document.createElement('h2')
+
+    title.innerText=currentQuestion.question
+    console.log(title,'this is the title of current question')
+    questionContainer.appendChild(title)
+    //using the currentQuestion object you re going to create a for loop for the options
+    for (let i = 0; i < currentQuestion.answers.length; i++) {
+        const element = currentQuestion.answers[i];
+        console.log(element,'this is the current answer')
+        
+    }
+
     
 }
 
-startButton.addEventListener("click", function(event){
-   quizContainer.classList.remove("hide");
-   startButton.classList.add("hide");
-    nextQuestion();
-})
+
+
+
+
+// // //COUNTDOWN TIMER:
+
+// /<!-- Display the countdown timer in an element -->
+// <p id="demo"></p>
+
+// <script>
+// // Set the date we're counting down to
+// var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+
+// // Update the count down every 1 second
+// var x = setInterval(function() {
+
+//   // Get today's date and time
+//   var now = new Date().getTime();
+
+//   // Find the distance between now and the count down date
+//   var distance = countDownDate - now;
+
+//   // Time calculations for days, hours, minutes and seconds
+//   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+//   // Display the result in the element with id="demo"
+//   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+//   + minutes + "m " + seconds + "s ";
+
+//   // If the count down is finished, write some text
+//   if (distance < 0) {
+//     clearInterval(x);
+//     document.getElementById("demo").innerHTML = "EXPIRED";
+//   }
+// }, 1000);
 
 
 
 
 
 
+// questionText.textContent = questions[currentQuestion].question
+// button1.textContent = question[currentQuestion].answers[1]
 
+// var text = questionText.textContent = questions[0].question
 
-
-
+ // questionText.textContent = questions[0].question
 
 
 
