@@ -5,21 +5,14 @@ var button2 = document.getElementById("op2");
 var button3 = document.getElementById("op3");
 var button4 = document.getElementById("op4");
 
-
-// /queryselectors for op1-4
-// within nextQuestion()
-//          //after we move on to next question, now we want to display answers of questions[index] to op 1-4
-//         //repeat process for all of the other ones. (edited) 
-// function checkAnswer(){
-//    //this function is trigered when a op 1-4 button is clicked
-//    //compare the answer of the button to the correct answer of questions[index].correctAnswer
-// }
-
+var time= 60
+var timerEl= document.querySelector("#timer")
 
 startButton.addEventListener("click", function(event){
     quizContainer.classList.remove("hide");
     startButton.classList.add("hide");
-     nextQuestion();
+    startTimer()
+    nextQuestion();
  })
 
 var questions = [
@@ -50,27 +43,62 @@ var currentQuestionIndex = 0;
 
 function nextQuestion(){
     var currentQuestion = questions[currentQuestionIndex];
-    var questionContainer=document.querySelector('#questionContainer')  
+    var questionContainer=document.querySelector('.question-container')  
     console.log(currentQuestion,'this is the current question')
     console.log(questionContainer,'container was made a variable')
 
-    var title=document.createElement('h2')
+    // var title=document.createElement('h2')
+    var title=document.querySelector("#title")
 
     title.innerText=currentQuestion.question
     console.log(title,'this is the title of current question')
-    questionContainer.appendChild(title)
+    // questionContainer.appendChild(title)
     //using the currentQuestion object you re going to create a for loop for the options
     for (let i = 0; i < currentQuestion.answers.length; i++) {
         const element = currentQuestion.answers[i];
         console.log(element,'this is the current answer')
-        
-    }
-
-    
+        const optionBtn = document.getElementById("op"+i)
+        optionBtn.textContent= element
+    }    
 }
 
+function startTimer(){
+    var timeHolder= setInterval(function(){
+    time--
+    console.log(time)
+    timerEl.innerText= time  
+    },1000)
+}
+
+function checkAnswer(event){
+var chosenAnswer= event.target.textContent
+var correctAnswer= questions[currentQuestionIndex].correctAnswer
+if(chosenAnswer===correctAnswer){
+    alert("correct")
+}
+else{
+    alert("wrong")
+    time-=10
+}
+
+//check if right or wrong
+currentQuestionIndex++ 
+if(questions.length>currentQuestionIndex){
+  nextQuestion()
+}
+//move to next question, increase currentQuestion index, run nextQuestion
+}
+//game over
 
 
+// /queryselectors for op1-4
+// within nextQuestion()
+//          //after we move on to next question, now we want to display answers of questions[index] to op 1-4
+//         //repeat process for all of the other ones. (edited) 
+// function checkAnswer(){
+//    //this function is trigered when a op 1-4 button is clicked
+//    //compare the answer of the button to the correct answer of questions[index].correctAnswer
+// }
 
 
 // // //COUNTDOWN TIMER:
