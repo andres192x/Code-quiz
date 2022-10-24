@@ -14,15 +14,16 @@
         <div class="result">
         </div>
         <p id="timer"></p>
-         
+
         <div>
             <h1 id="gameTitle">Coding Quiz Challenge</h1>
-            <h2 id="title">Try to answer the following code related questions within the time limit. Keep in mind that incorrect
+            <h2 id="title">Try to answer the following code related questions within the time limit. Keep in mind that
+                incorrect
                 answers will decrease your time by ten seconds.</h2>
             <button id="start">Start Quiz</button>
         </div>
 
-        <div class="quiz-container hide" >  
+        <div class="quiz-container hide">
 
             <div class="question-container" id="question">
                 <!-- Question goes here. -->
@@ -43,8 +44,20 @@
                 <!-- <button class="next">Next</button> -->
             </div>
         </div>
+
+        <div id="end-screen" class="hide">
+            <h3>Your final score is: <span id="final-score"></span></h3>
+            <input type="text" id="initials" placeholder="enter initials">
+            <button id="submit-name">Enter</button>
+            <div class="scoreStorage">
+                <ol id="score-list">
+            </ol></div>
+            
+
+            </ol>
+        </div>
     </div>
-       <script src="./assets/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>
